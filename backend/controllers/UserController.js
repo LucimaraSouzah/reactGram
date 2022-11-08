@@ -19,7 +19,7 @@ const register = async (req, res) => {
   const user = await User.findOne({ email });
 
   if (user) {
-    res.status(422).json({ errors: "Por favor, utilize outro e-mail." });
+    res.status(422).json({ errors: ["Por favor, utilize outro e-mail."] });
     return;
   }
 
@@ -38,7 +38,7 @@ const register = async (req, res) => {
   if (!newUser) {
     res
       .status(422)
-      .json({ errors: "Houve um erro, por favor tente mais tarde." });
+      .json({ errors: ["Houve um erro, por favor tente mais tarde."] });
     return;
   }
 
@@ -56,13 +56,13 @@ const login = async (req, res) => {
 
   // Check if user exists
   if (!user) {
-    res.status(404).json({ errors: "Usuário não encontrado." });
+    res.status(404).json({ errors: ["Usuário não encontrado."] });
     return;
   }
 
   // Check if password matches
   if (!(await bycrypt.compare(password, user.password))) {
-    res.status(422).json({ errors: "Senha incorreta." });
+    res.status(422).json({ errors: ["Senha incorreta."] });
     return;
   }
 
@@ -131,13 +131,13 @@ const getUserById = async (req, res) => {
       "-password"
     );
     if (!user) {
-      res.status(404).json({ errors: "Usuário não encontrado." });
+      res.status(404).json({ errors: ["Usuário não encontrado."] });
       return;
     }
 
     res.status(200).json(user);
   } catch (error) {
-    res.status(404).json({ errors: "Usuário não encontrado." });
+    res.status(404).json({ errors: ["Usuário não encontrado."] });
     return;
   }
 
