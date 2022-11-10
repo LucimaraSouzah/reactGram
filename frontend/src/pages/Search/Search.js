@@ -1,19 +1,23 @@
-import "./Home.css";
+import "./Search.css";
+
+// hooks
+import { useQuery } from "../../hooks/useQuery";
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useResetComponentMessage } from "../../hooks/useResetComponentMessage";
 
 // components
 import LikeContainer from "../../components/LikeContainer";
 import PhotoItem from "../../components/PhotoItem";
 import { Link } from "react-router-dom";
 
-// hooks
-import { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { useResetComponentMessage } from "../../hooks/useResetComponentMessage";
-
 // Redux
-import { getPhotos, like } from "../../slices/photoSlice";
+import { searchPhotos, like } from "../../slices/photoSlice";
 
-const Home = () => {
+const Search = () => {
+  const query = useQuery();
+  const search = query.get("q");
+
   const dispatch = useDispatch();
 
   const resetMessage = useResetComponentMessage(dispatch);
@@ -23,8 +27,8 @@ const Home = () => {
 
   // Load all photos
   useEffect(() => {
-    dispatch(getPhotos());
-  }, [dispatch]);
+    dispatch(searchPhotos(search));
+  }, [dispatch, search]);
 
   const handleLike = (photo = null) => {
     dispatch(like(photo._id));
@@ -37,8 +41,9 @@ const Home = () => {
   }
 
   return (
-    <div id="home">
-      {photos &&
+    <div id="search">
+      <h2>Você está buscando por: {search}</h2>
+      {photos.length !== 0 ? (
         photos.map((photo) => (
           <div key={photo._id}>
             <PhotoItem photo={photo} />
@@ -47,15 +52,11 @@ const Home = () => {
               Ver mais
             </Link>
           </div>
-        ))}
-      {photos && photos.length === 0 && (
-        <h2 className="no-photos">
-          Ainda não há fotos publicadas,{" "}
-          <Link to={`/users/${user.userId}`}>clique aqui</Link> para começar.
-        </h2>
-      )}
+        ))
+      ) : (<p>Nenhuma foto encontrada.</p>)
+        }
     </div>
   );
 };
 
-export default Home;
+export default Search;
