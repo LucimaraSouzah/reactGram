@@ -22,15 +22,17 @@ Projeto desenvolvido no curso de ReactJS oferecido pelo Matheus Battisti. Consis
 
 ## 🎨 Layout
 
-<img class="tela" width="300px" height="300px" object-fit="cover" src="telas/Cadastro.png"/>
+<div>
+<img class="tela" width="45%" src="telas/Cadastro.png"/>
 
-<img class="tela" width="300px" height="300px" object-fit="cover" src="telas/Login.png"/>
+<img class="tela" width="45%" src="telas/Login.png"/>
 
-<img class="tela" width="300px" height="300px" object-fit="cover" src="telas/Home.png"/>
+<img class="tela" width="45%" src="telas/Home.png"/>
 
-<img class="tela" width="300px" height="300px" object-fit="cover" src="telas/Perfil.png"/>
+<img class="tela" width="45%" src="telas/Perfil.png"/>
 
-<img class="tela" width="300px" height="300px" object-fit="cover" src="telas/Publicar.png"/>
+<img class="tela" width="45%" src="telas/Publicar.png"/>
+</div>
 
 ---
 
