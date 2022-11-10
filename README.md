@@ -22,16 +22,17 @@ Projeto desenvolvido no curso de ReactJS oferecido pelo Matheus Battisti. Consis
 
 ## 🎨 Layout
 
-<div>
-<img class="tela" width="45%" src="telas/Cadastro.png"/>
-
-<img class="tela" width="45%" src="telas/Login.png"/>
-
-<img class="tela" width="45%" src="telas/Home.png"/>
-
-<img class="tela" width="45%" src="telas/Perfil.png"/>
-
-<img class="tela" width="45%" src="telas/Publicar.png"/>
+<div align="center">
+<h3>Tela de Cadastro</h3>
+<img class="tela"  src="telas/Cadastro.png"/>
+<h3>Tela de Login</h3>
+<img class="tela"  src="telas/Login.png"/>
+<h3>Tela para publicar fotos</h3>
+<img class="tela"  src="telas/Publicar.png"/>
+<h3>Tela do Perfil do usuário</h3>
+<img class="tela"  src="telas/Perfil.png"/>
+<h3>Tela de início com todas as fotos</h3>
+<img class="tela" src="telas/Home.png"/>
 </div>
 
 ---
